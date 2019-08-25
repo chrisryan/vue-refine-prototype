@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="breadbox">
-    <div class="option" v-for="(param, key) in options" :key="key">
+    <div class="option" v-for="(param, key) in options" :key="key" @click="$emit('delete_key', key)">
       <span class="type">{{key}}</span>
       <span class="value">{{param}}</span>
       <span class="delete">X</span>

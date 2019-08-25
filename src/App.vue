@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <BreadBox :options="options" />
+    <BreadBox :options="options" @delete_key="delete_key"/>
   </div>
 </template>
 
@@ -17,8 +17,13 @@ export default {
       options: {
         animal: 'Dolphin',
         plant: 'Tullip',
-        mineral: 'Salt'
+        mineral: 'Salt',
       }
+    }
+  },
+  methods: {
+    delete_key: function(key) {
+      this.options = this.$_.omit(this.options, key)
     }
   }
 }
