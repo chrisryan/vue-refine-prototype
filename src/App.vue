@@ -1,17 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <BreadBox :options="options" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BreadBox from './components/BreadBox.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    BreadBox
+  },
+  data: function() {
+    return {
+      options: {
+        animal: 'Dolphin',
+        plant: 'Tullip',
+        mineral: 'Salt'
+      }
+    }
   }
 }
 </script>
