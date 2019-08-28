@@ -1,31 +1,21 @@
 <template>
   <div id="app">
-    <BreadBox :options="options" @delete_key="delete_key"/>
+    <BreadBox :options="allOptions" @delete_key="deleteOptionKey"/>
   </div>
 </template>
 
 <script>
 import BreadBox from './components/BreadBox.vue'
+import { mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'app',
   components: {
     BreadBox
   },
-  data: function() {
-    return {
-      options: {
-        animal: 'Dolphin',
-        plant: 'Tullip',
-        mineral: 'Salt',
-      }
-    }
-  },
-  methods: {
-    delete_key: function(key) {
-      this.options = this.$_.omit(this.options, key)
-    }
-  }
+  methods: mapActions(['deleteOptionKey']),
+  computed: mapGetters(['allOptions']),
 }
 </script>
 
